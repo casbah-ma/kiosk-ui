@@ -3,18 +3,18 @@ export default {
   colors: {
     text: {
       primary: '#000',
-      secondary: '#fff',
+      secondary: '#477C7D',
     },
     bg: {
-      primary: '#486DC3',
-      primaryLight: '#486DC329',
+      primary: '#C9E9EA',
+      primaryLight: '#C9E9EA29',
       secondary: '#000',
       tertiary: '#fafafa',
       additional: '#00bcd4',
       colorgrey: 'rgba(250,250,250, 0.08)',
     },
     border: {
-      primary: '#486DC3',
+      primary: '#C9E9EA',
       secondary: '#000',
       transparent: '#FFFFFF32',
       white: '#fff',
@@ -22,17 +22,17 @@ export default {
     DatesCore: {
       bg: '#fff',
       text: '#000',
-      bgSelected: '#486DC3',
+      bgSelected: '#C9E9EA',
       textSelected: '#fff',
     },
     gradient: {
       primary: 'rgba(72, 109, 195, 0.1) 0%',
-      secondary: '#486DC3 96.03%',
+      secondary: '#C9E9EA 96.03%',
     },
   },
   fontFamily: {
-    primary: [],
-    secondary: [],
-    indie: [],
+    primary: ['Clash Display', 'sans-serif'],
+    secondary: ['Clash Display', 'sans-serif'],
+    indie: ['Clash Display', 'sans-serif'],
   },
 }

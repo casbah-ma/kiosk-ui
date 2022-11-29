@@ -1,41 +1,43 @@
-import PropTypes from 'prop-types'
-import { buttonsVariant, StyledButton, StyledIcon } from './Button.styles'
+import PropTypes from "prop-types";
+import { buttonsVariant, StyledButton, StyledIcon } from "./Button.styles";
 
 const Button = ({
+  ariaLabel,
   variant,
   label,
-  ariaLabel,
   Icon,
   color,
   bgColor,
   border,
+  borderWidth,
+  borderColor,
   disabled,
   handleClick,
   testID,
-  as,
   t,
 }) => {
   return (
     <StyledButton
       aria-label={ariaLabel}
-      as={as}
       data-testid={testID}
       variant={variant}
       color={color}
       bgColor={bgColor}
       disabled={disabled}
       onClick={handleClick}
+      borderWidth={borderWidth}
       border={border}
+      borderColor={borderColor}
     >
-      {t ? t(label) : label}
       {Icon && (
-        <StyledIcon variant={variant} color={color} bgColor={bgColor}>
-          <Icon />
+        <StyledIcon variant={variant} color={color} bgColor={bgColor} label={label}>
+          <Icon width='1.5rem'/>
         </StyledIcon>
       )}
+      {t ? t(label) : label}
     </StyledButton>
-  )
-}
+  );
+};
 
 Button.propTypes = {
   label: PropTypes.string,
@@ -44,14 +46,11 @@ Button.propTypes = {
   bgColor: PropTypes.string,
   color: PropTypes.string,
   border: PropTypes.bool,
+  borderWidth: PropTypes.string,
+  borderColor: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
-  as: PropTypes.string,
   t: PropTypes.func,
-}
+};
 
-Button.defaultProps = {
-  onClick: undefined,
-}
-
-export default Button
+export default Button;
