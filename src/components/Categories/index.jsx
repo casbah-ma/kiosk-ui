@@ -11,18 +11,16 @@ const Categories = function ({
   bgColor,
   bgImage,
   title,
-  titleBgColor,
   Icon,
   onClick,
-  border
 }) {
   return (
-    <CategoriesContainer border={border} bgColor={bgColor} bgImage={bgImage} onClick={onClick}>
+    <CategoriesContainer bgColor={bgColor} bgImage={bgImage} onClick={onClick}>
       {bgImage && <CategoriesCardImage src={bgImage} alt="bgImage" />}
       <CategoriesCardIcon>
         <Icon color="#fff" />
       </CategoriesCardIcon>
-      <CategoriesCardTitle bgColor={titleBgColor}>{title}</CategoriesCardTitle>
+      <CategoriesCardTitle bgColor={bgColor}>{title}</CategoriesCardTitle>
     </CategoriesContainer>
   );
 };
