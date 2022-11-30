@@ -8,7 +8,6 @@ export { default as Eye } from "./Eye";
 export { default as Qrcode } from "./Qrcode";
 export { default as Restaurant } from "./Restaurant";
 export { default as Close } from "./Close";
-
 export { default as Map } from "./Map";
 export { default as Lodging } from "./Lodging";
 export { default as Spa } from "./Spa";
@@ -17,3 +16,4 @@ export { default as Meeting } from "./Meeting";
 export { default as Music } from "./Music";
 export { default as Plan } from "./Plan";
 export { default as Bar } from "./Bar";
+export { default as Shapes } from "./Shapes";

@@ -1,15 +1,4 @@
 import Card_v2Grid from ".";
-import {
-  Bar,
-  Lodging,
-  Map,
-  Meeting,
-  Music,
-  Plan,
-  Restaurant,
-  Restaurant2,
-  Spa,
-} from "../Icons";
 
 export default {
   title: "Components/Card_v2Grid",
