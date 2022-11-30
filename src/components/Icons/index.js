@@ -4,3 +4,5 @@ export { default as Closed } from "./Closed";
 export { default as Clock } from "./Clock";
 export { default as menu } from "./menu";
 export { default as Location } from "./Location";
+export { default as Eye } from "./Eye";
+export { default as Qrcode } from "./Qrcode";
