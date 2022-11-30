@@ -1,6 +1,4 @@
 import Button from ".";
-//decorator
-import Centre from "@/components/Centre";
 //theming
 import { buttonsVariant } from "./Button.styles";
 import { PlusIcon } from '@heroicons/react/24/solid'
@@ -9,7 +7,6 @@ import { ArrowRight } from "../Icons";
 export default {
   title: "Common/Button",
   component: Button,
-  decorators: [(story) => <Centre>{story()}</Centre>],
   argTypes: {
     variant: {
       options: Object.keys(buttonsVariant),

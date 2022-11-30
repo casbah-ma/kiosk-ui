@@ -2,8 +2,8 @@ import tw, { styled } from "twin.macro";
 
 //Object variants
 export const CardsVariant = {
-  primary: tw`w-[115.25rem] max-h-[116.813rem] bg-white rounded-xl border shadow-lg`,
-  secondary: tw`w-[97.375rem] max-h-[74rem] bg-white rounded-xl border shadow-lg`,
+  primary: tw`w-[115.25rem]  bg-white rounded-xl border shadow-lg`,
+  secondary: tw`w-[97.375rem]  bg-white rounded-xl border shadow-lg`,
 };
 
 export const CardContainer = styled.div(({ theme }) => [
@@ -52,7 +52,7 @@ export const Body = styled.div(({ theme, variant }) => [
 export const Time = styled.div(({ theme, variant }) => [
   variant == "secondary"
     ? tw`hidden`
-    : tw`flex font-normal text-[3rem] leading-[4.92rem] text-[#5B5B5B] py-8`,
+    : tw`flex font-normal text-[4rem] leading-[4.92rem] text-[#5B5B5B] py-8`,
 ]);
 
 export const Line = styled.div(({ theme, variant }) => [
@@ -62,7 +62,7 @@ export const Line = styled.div(({ theme, variant }) => [
 export const LinkSection = styled.div(({ theme, variant }) => [
   variant == "secondary"
     ? tw`hidden`
-    : tw`flex justify-center items-center  pt-8 text-[#0E1222]`,
+    : tw`flex justify-center items-center  py-[6.244rem] text-[#0E1222]`,
 ]);
 export const LinkLabel = styled.span(({ theme }) => [
   tw`font-medium text-[4rem] leading-[4.92rem] uppercase underline ml-[2.379rem]`,

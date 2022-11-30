@@ -1,10 +1,8 @@
 import Card_v2 from ".";
 //decorator
-import Centre from "@/components/Centre";
 
 export default {
   title: "Components/Cards/Card_v2",
-  decorators: [(story) => <Centre>{story()}</Centre>],
   component: Card_v2,
   argTypes: {},
 };

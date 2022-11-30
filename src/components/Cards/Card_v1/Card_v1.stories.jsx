@@ -1,11 +1,9 @@
 import Card_v1 from ".";
 //decorator
-import Centre from "@/components/Centre";
 import { PlusIcon } from '@heroicons/react/24/solid'
 
 export default {
   title: "Components/Cards/Card_v1",
-  decorators: [(story) => <Centre>{story()}</Centre>],
   component: Card_v1,
   argTypes: {},
 };
