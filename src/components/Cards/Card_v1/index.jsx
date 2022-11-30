@@ -1,8 +1,10 @@
 import {
   Body,
+  BtnSection,
   CardContainer,
   CardImage,
   ContentCard,
+  Direction,
   Header,
   Line,
   LinkLabel,
@@ -13,7 +15,7 @@ import {
 } from "./Card_v1.styles";
 import { PropTypes } from "prop-types";
 import Button from "../../Button";
-import { Check, Clock, Closed } from "../../Icons";
+import { Check, Clock, Closed, Location } from "../../Icons";
 import Menu from "../../Icons/menu";
 
 const Card_v1 = function ({
@@ -25,36 +27,54 @@ const Card_v1 = function ({
   article,
   time,
   linkLabel,
+  direction,
+  variant = "primary",
+  btnlabel,
+  btnvariant,
+  btnbgColor,
+  btncolor,
+  btnborderColor,
+  btnborderWidth,
+  btnIcon,
 }) {
   return (
-    <CardContainer>
+    <CardContainer variant={variant}>
       <CardImage>
         <img src={image} alt="test" />
       </CardImage>
       <ContentCard>
         <Header>
-          <Title titleColor={titleColor}>{title}</Title>
-          <Status open={open}>
+          <Title titleColor={titleColor} variant={variant}>
+            {title}
+          </Title>
+          <Status open={open} variant={variant}>
             {open ? <Check width="4.167rem" /> : <Closed width="4.167rem" />}
             {status}
           </Status>
         </Header>
-        <Body>{article}</Body>
-        <Button
-          variant="secondary"
-          color="#000"
-          bgColor="#F3F3F3"
-          border="true"
-          borderColor="#6A6969"
-          borderWidth="2px"
-          label="🇲🇦 Restaurant Marocain"
-        ></Button>
-        <Time>
+        <Body variant={variant}>{article}</Body>
+        <BtnSection>
+          <Direction variant={variant}>
+            <Location width="5rem" />
+            {direction}
+          </Direction>
+          <Button
+            variant={btnvariant}
+            color={btncolor}
+            bgColor={btnbgColor}
+            border="true"
+            Icon={btnIcon}
+            borderColor={btnborderColor}
+            borderWidth={btnborderWidth}
+            label={btnlabel}
+          ></Button>
+        </BtnSection>
+        <Time variant={variant}>
           <Clock width="5.209rem" />
           {time}
         </Time>
-        <Line></Line>
-        <LinkSection>
+        <Line variant={variant}></Line>
+        <LinkSection variant={variant}>
           <Menu width="4.493rem" />
           <LinkLabel>{linkLabel}</LinkLabel>
         </LinkSection>
