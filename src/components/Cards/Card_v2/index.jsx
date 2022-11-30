@@ -20,7 +20,7 @@ const Card_v2 = function ({
   btnlabel2,
 }) {
   return (
-    <CardContainer>
+    <CardContainer variant={variant}>
       <CardImage variant={variant}>
         <img src={image} alt="test" />
       </CardImage>

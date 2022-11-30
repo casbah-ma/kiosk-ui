@@ -1,7 +1,7 @@
 import Categories from "../Categories";
 import { CategoriesGridSection } from "./CategoriesGrid.styles";
 
-const Services = ({ items }) => {
+const CategoriesGrid = ({ items }) => {
   return (
     <CategoriesGridSection>
       {items.length > 0 &&
@@ -12,4 +12,4 @@ const Services = ({ items }) => {
   );
 };
 
-export default Services;
+export default CategoriesGrid;

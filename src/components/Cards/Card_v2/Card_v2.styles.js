@@ -6,8 +6,9 @@ export const CardsVariant = {
   sm: tw`flex [&>*]:w-full [&>*]:h-[30.563rem] [&>*]:rounded-t-lg [&>*]:object-cover`,
 };
 
-export const CardContainer = styled.div(({ theme }) => [
-  tw`w-[55.188rem] max-h-[98rem] bg-white rounded-xl border shadow-lg`,
+export const CardContainer = styled.div(({ theme, variant }) => [
+  tw`w-[55.188rem]  bg-white rounded-xl border shadow-lg`,
+  variant== 'sm' ?  tw`h-[85.25rem]`: tw`h-[98rem]`,
   //base style
   `font-family: ${theme.fontFamily.secondary};`,
 ]);
