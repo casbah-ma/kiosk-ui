@@ -1,10 +1,28 @@
 import { PropTypes } from "prop-types";
-import { CategoriesContainer } from "./Categories.styles";
+import Menu from "../Icons/menu";
+import {
+  CategoriesContainer,
+  CategoriesCardIcon,
+  CategoriesCardImage,
+  CategoriesCardTitle,
+} from "./Categories.styles";
 
-const Categories = function ({ bgColor, border }) {
+const Categories = function ({
+  bgColor,
+  bgImage,
+  title,
+  titleBgColor,
+  Icon,
+  onClick,
+  border
+}) {
   return (
-    <CategoriesContainer bgColor={bgColor} border={border}>
-      test
+    <CategoriesContainer border={border} bgColor={bgColor} bgImage={bgImage} onClick={onClick}>
+      {bgImage && <CategoriesCardImage src={bgImage} alt="bgImage" />}
+      <CategoriesCardIcon>
+        <Icon color="#fff" />
+      </CategoriesCardIcon>
+      <CategoriesCardTitle bgColor={titleBgColor}>{title}</CategoriesCardTitle>
     </CategoriesContainer>
   );
 };

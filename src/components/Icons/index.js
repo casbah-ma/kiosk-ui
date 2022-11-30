@@ -6,3 +6,5 @@ export { default as menu } from "./menu";
 export { default as Location } from "./Location";
 export { default as Eye } from "./Eye";
 export { default as Qrcode } from "./Qrcode";
+export { default as Restaurant } from "./Restaurant";
+export { default as Close } from "./Close";
