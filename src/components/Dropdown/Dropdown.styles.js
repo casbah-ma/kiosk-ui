@@ -7,7 +7,7 @@ export const StyledDropdown = styled.div(({ theme }) => [
 
 export const List = styled.ul(({}) => [
   tw`    w-full flex flex-col gap-2 py-4 absolute justify-center items-center sm:left-[0.5px] mt-2 origin-top-right 
-  divide-y divide-gray-100 rounded-lg ring-black shadow-2xl ring-opacity-5 focus:outline-none bg-[#161928] `,
+  divide-y-4 divide-slate-400/25  rounded-lg ring-black shadow-2xl ring-opacity-5 focus:outline-none bg-[#161928] `,
 ]);
 
 export const ListItem = styled.li(({ active }) => [

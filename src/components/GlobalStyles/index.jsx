@@ -259,6 +259,28 @@ const CustomStyles = createGlobalStyle`
   }
 }
 
+.swiper{
+  ${tw`!flex !justify-center !items-center !w-[135rem] !h-[102.938rem]`}
+}
+
+.swiper-pagination {
+  ${tw`!flex !justify-center !items-center !w-[14.625rem] !h-[5.625rem]`}
+  opacity: 1;
+  border: 3px solid #8C8C8C !important;
+  background-color: white !important;
+  box-shadow: 6px 12px 48px rgba(0, 0, 0, 0.16) !important;
+  border-radius: 300px !important;
+  left: unset !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #000 !important;
+  ${tw`!w-[2.625rem] !h-[2.625rem]`}
+}
+.swiper-pagination-bullet {
+  ${tw`w-[1.875rem] h-[1.875rem]`}
+}
+
 `
 const GlobalStyles = () => (
   <>
