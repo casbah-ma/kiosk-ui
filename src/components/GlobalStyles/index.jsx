@@ -138,11 +138,14 @@ const CustomStyles = createGlobalStyle`
 .menu {
      ${tw`relative inline-block text-left`}
      button {
-      ${tw`inline-flex justify-center gap-[0.8rem] bg-transparent`}
+      ${tw`inline-flex justify-center items-center gap-[1rem] bg-[#161928] 
+      text-white w-[23.313rem] h-[7.938rem] rounded-full uppercase
+      font-normal text-[4rem] leading-[4.92rem] tracking-tighter
+      border border-8 border-[#243c5a80]`}
      }
 
      svg {
-        ${tw`h-5 w-5 text-black`}
+        ${tw`h-[4rem] w-[4rem] text-black`}
      }
 
      //animation

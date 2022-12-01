@@ -18,3 +18,5 @@ export { default as Plan } from "./Plan";
 export { default as Bar } from "./Bar";
 export { default as Shapes } from "./Shapes";
 export { default as CloudSunny } from "./CloudSunny";
+export { default as Usa } from "./Usa";
+export { default as ChevronDown } from "./ChevronDown";
