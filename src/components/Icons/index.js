@@ -17,3 +17,4 @@ export { default as Music } from "./Music";
 export { default as Plan } from "./Plan";
 export { default as Bar } from "./Bar";
 export { default as Shapes } from "./Shapes";
+export { default as CloudSunny } from "./CloudSunny";
