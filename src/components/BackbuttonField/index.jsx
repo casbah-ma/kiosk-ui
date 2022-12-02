@@ -1,4 +1,3 @@
-import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import { ArrowLeft } from "../Icons";
 import { StyledBackbuttonField, StyledBtn, Text } from "./BackbuttonField.styles";
 

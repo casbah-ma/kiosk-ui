@@ -1,15 +1,15 @@
-import Home from ".";
+import Gategory from ".";
 import * as HeaderStories from '@/components/Header/Header.stories'
 import * as SwiperStories from '@/components/Swiper/Swiper.stories'
 import * as CategoriesStories from '@/components/CategoriesGrid/CategoriesGrid.stories'
 import * as FeedBackStories from '@/components/FeedBackCard/FeedBackCard.stories'
 
 export default {
-    title: "Pages/Home",
-    component: Home,
+    title: "Pages/Gategory",
+    component: Gategory,
 }
 
-const Template = (args) => <Home {...args} />
+const Template = (args) => <Gategory {...args} />
 
 export const Default =  Template.bind({})
 Default.args = {

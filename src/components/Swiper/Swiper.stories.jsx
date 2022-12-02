@@ -1,7 +1,7 @@
 import Swiper from ".";
 import Usa  from "../../assets/usa.svg";
 import France  from "../../assets/France.svg";
-import Dropdown from "../Dropdown";
+
 export default {
   title: "Components/Swiper",
   component: Swiper,
@@ -26,5 +26,4 @@ Default.args = {
     { language: "en", flag: Usa },
     { language: "fr", flag: France },
   ],
-  // children: <Dropdown languages={languages} />
 };

@@ -1,9 +1,4 @@
 import tw, { styled } from "twin.macro";
-//Object variants
-export const ModalVariant = {
-  primary: tw``,
-  secondary: tw``,
-};
 
 export const ModalContainer = styled.div(({}) => [
   tw`w-[115.25rem] h-[87.625rem] rounded-[4.25rem] p-[7.313rem]`,
