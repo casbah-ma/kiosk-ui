@@ -1,8 +1,7 @@
 import Gategory from ".";
 import * as HeaderStories from '@/components/Header/Header.stories'
-import * as SwiperStories from '@/components/Swiper/Swiper.stories'
-import * as CategoriesStories from '@/components/CategoriesGrid/CategoriesGrid.stories'
-import * as FeedBackStories from '@/components/FeedBackCard/FeedBackCard.stories'
+import * as BackbuttonStories from '@/components/BackbuttonField/BackbuttonField.stories'
+import * as Card_v1MapStories from '@/components/Card_v1Map/Card_v1Map.stories'
 
 export default {
     title: "Pages/Gategory",
@@ -13,8 +12,7 @@ const Template = (args) => <Gategory {...args} />
 
 export const Default =  Template.bind({})
 Default.args = {
-    HeaderProps: { ...HeaderStories.Primary.args },
-    SwiperProps: { ...SwiperStories.Default.args },
-    CategoriesProps: { ...CategoriesStories.Default.args },
-    FeedBackProps: { ...FeedBackStories.Default.args },
+    HeaderProps: { ...HeaderStories.Secondary.args },
+    BackbuttonProps: { ...BackbuttonStories.Default.args },
+    Card_v1MapProps: { ...Card_v1MapStories.Default.args },
 }
