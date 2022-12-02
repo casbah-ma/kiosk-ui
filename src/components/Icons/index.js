@@ -20,3 +20,5 @@ export { default as Shapes } from "./Shapes";
 export { default as CloudSunny } from "./CloudSunny";
 export { default as Usa } from "./Usa";
 export { default as ChevronDown } from "./ChevronDown";
+export { default as Shapes2 } from "./Shapes2";
+export { default as Shapes3 } from "./Shapes3";

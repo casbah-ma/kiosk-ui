@@ -3,11 +3,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 import SwiperCore, { Autoplay } from "swiper";
 import { Pagination } from "swiper";
-import { Slide } from "./Swiper.styles";
+import { DropdownContainer, Slide } from "./Swiper.styles";
+import Dropdown from "../Dropdown";
 
-const Swiper_v1 = ({ items }) => {
+const Swiper_v1 = ({ items, languages,children }) => {
   SwiperCore.use([Autoplay]);
   return (
+    <>
+      <DropdownContainer>
+      <Dropdown languages={languages} />
+      </DropdownContainer>
     <Swiper
       modules={[Pagination]}
       slidesPerView={1}
@@ -26,6 +31,7 @@ const Swiper_v1 = ({ items }) => {
           );
         })}
     </Swiper>
+    </>
   );
 };
 

@@ -260,7 +260,7 @@ const CustomStyles = createGlobalStyle`
 }
 
 .swiper{
-  ${tw`!flex !justify-center !items-center !w-[135rem] !h-[102.938rem]`}
+  ${tw`!flex !justify-center !items-center  !h-[102.938rem]`}
 }
 
 .swiper-pagination {
