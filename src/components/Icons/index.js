@@ -24,3 +24,4 @@ export { default as Shapes2 } from "./Shapes2";
 export { default as Shapes3 } from "./Shapes3";
 export { default as Success } from "./Success";
 export { default as Vector } from "./Vector";
+export { default as ArrowLeft } from "./ArrowLeft";
