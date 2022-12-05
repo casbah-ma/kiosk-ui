@@ -26,8 +26,7 @@ export default {
       textSelected: '#fff',
     },
     gradient: {
-      primary: 'rgba(72, 109, 195, 0.1) 0%',
-      secondary: '#C9E9EA 96.03%',
+      primary: 'rgba(14, 18, 34, 0.48)',
     },
   },
   fontFamily: {

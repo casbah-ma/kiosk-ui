@@ -1,7 +1,7 @@
 import tw, { styled } from "twin.macro";
 
 export const ModalContainer = styled.div(({}) => [
-  tw`w-[115.25rem] h-[87.625rem] rounded-[4.25rem] p-[7.313rem]`,
+  tw`w-[115.25rem] h-[87.625rem] rounded-[4.25rem] p-[7.313rem] bg-white`,
   `box-shadow: 8px 12px 32px rgba(0, 0, 0, 0.55);`
 ]);
 
