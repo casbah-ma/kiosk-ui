@@ -14,14 +14,14 @@ import { CategoriesSection } from "./home.styles";
 
 const Home = ({ HeaderProps, SwiperProps, CategoriesProps, FeedBackProps }) => {
   const [categories, setCategories] = useState();
-  const [city, setCity] = useState();
   const [location, setLocation] = useState();
+  const [reformattedHeader, setReformattedHeader] = useState({});
   useEffect(() => {
     fetchData().then(function (result) {
       setCategories(result.categories);
-      setCity(result.location.city);
-      setLocation(result.location);
-      console.log(HeaderProps);
+      setLocation(result.location.loc);
+      handleReformattedHeader(result.location)
+      console.log(location)
     });
   }, []);
 
@@ -35,8 +35,8 @@ const Home = ({ HeaderProps, SwiperProps, CategoriesProps, FeedBackProps }) => {
     };
   });
 
-  const reformattedHeader = (data) => {
-    return {
+  const handleReformattedHeader = (data) => {
+    setReformattedHeader({
       variant: "primary",
       time: "20:48 pm",
       day: "23 Octobre, 2022",
@@ -44,12 +44,10 @@ const Home = ({ HeaderProps, SwiperProps, CategoriesProps, FeedBackProps }) => {
       WeatherIcon: CloudSunny,
       weather: "23 °C",
       city: data?.city,
-    };
+    });
   };
 
-  useEffect(() => {
-    console.log(reformattedHeader(location));
-  }, [reformattedHeader]);
+
 
   return (
     <>
