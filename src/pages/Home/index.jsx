@@ -9,21 +9,30 @@ import {
   Shapes3,
 } from "../../components/Icons";
 import Swiper_v1 from "../../components/Swiper";
-import { fetchData } from "../services";
+import { fetchData, formatAMPM, formatDate, getweather } from "../services";
 import { CategoriesSection } from "./home.styles";
 
 const Home = ({ HeaderProps, SwiperProps, CategoriesProps, FeedBackProps }) => {
   const [categories, setCategories] = useState();
   const [location, setLocation] = useState();
+  const [weather, setWeather] = useState();
   const [reformattedHeader, setReformattedHeader] = useState({});
+
   useEffect(() => {
     fetchData().then(function (result) {
       setCategories(result.categories);
       setLocation(result.location.loc);
-      handleReformattedHeader(result.location)
-      console.log(location)
+      handleReformattedHeader(result.location);
     });
-  }, []);
+  }, [weather]);
+
+  useEffect(() => {
+    location &&
+      getweather(location).then(function (result) {
+        console.log(Math.round(parseFloat(result.main.temp)));
+        setWeather(Math.round(parseFloat(result.main.temp)));
+      });
+  }, [location]);
 
   const reformattedData = categories?.map((data) => {
     return {
@@ -38,16 +47,14 @@ const Home = ({ HeaderProps, SwiperProps, CategoriesProps, FeedBackProps }) => {
   const handleReformattedHeader = (data) => {
     setReformattedHeader({
       variant: "primary",
-      time: "20:48 pm",
-      day: "23 Octobre, 2022",
+      time: formatAMPM(new Date()),
+      day: formatDate(),
       logo: data?.logo,
       WeatherIcon: CloudSunny,
-      weather: "23 °C",
+      weather: weather && weather + " °C",
       city: data?.city,
     });
   };
-
-
 
   return (
     <>
