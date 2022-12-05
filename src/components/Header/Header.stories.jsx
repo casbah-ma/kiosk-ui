@@ -17,7 +17,7 @@ Primary.args = {
   time: "20:48 pm",
   day: "23 Octobre, 2022",
   logo: Logo,
-  WeatherIcon: CloudSunny,
+  WeatherIcon: '01d',
   weather: "23 °C",
   city: "Casablanca",
 };

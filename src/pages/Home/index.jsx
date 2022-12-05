@@ -16,6 +16,7 @@ const Home = ({ HeaderProps, SwiperProps, CategoriesProps, FeedBackProps }) => {
   const [categories, setCategories] = useState();
   const [location, setLocation] = useState();
   const [weather, setWeather] = useState();
+  const [weatherIcon, setWeatherIcon] = useState();
   const [reformattedHeader, setReformattedHeader] = useState({});
 
   useEffect(() => {
@@ -31,6 +32,7 @@ const Home = ({ HeaderProps, SwiperProps, CategoriesProps, FeedBackProps }) => {
       getweather(location).then(function (result) {
         console.log(Math.round(parseFloat(result.main.temp)));
         setWeather(Math.round(parseFloat(result.main.temp)));
+        setWeatherIcon(result.weather[0].icon)
       });
   }, [location]);
 
@@ -50,7 +52,7 @@ const Home = ({ HeaderProps, SwiperProps, CategoriesProps, FeedBackProps }) => {
       time: formatAMPM(new Date()),
       day: formatDate(),
       logo: data?.logo,
-      WeatherIcon: CloudSunny,
+      WeatherIcon: weatherIcon  ,
       weather: weather && weather + " °C",
       city: data?.city,
     });

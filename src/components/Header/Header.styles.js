@@ -27,7 +27,7 @@ export const StyledHeaderWeather = styled.div(({ variant }) => [
     : tw`basis-1/3 flex justify-end items-center`,
 ]);
 export const WeatherWrapper = styled.div(({}) => [
-  tw`font-semibold text-[4.75rem] leading-[5.843rem] tracking-tighter ml-[2rem] text-[
+  tw`font-semibold text-[4.75rem] leading-[5.843rem] tracking-tighter text-[
         #FDD020]`,
 ]);
 export const City = styled.div(({ theme }) => [
