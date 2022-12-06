@@ -1,28 +1,67 @@
-const { API_BASE_URL, API_KEY, API_WEATHER_URL } = require("../config/constants");
+const {
+  API_BASE_URL,
+  API_KEY,
+  API_WEATHER_URL,
+} = require("../config/constants");
+
+export let FETCHED_DATA;
+
+// export async function fetchData() {
+//   return await fetch(API_BASE_URL).then((response) => response.json());
+
+// }
 
 export async function fetchData() {
-  return await fetch(API_BASE_URL).then((response) => response.json());
-
+  return  await fetch(API_BASE_URL).then((response) =>
+    response.json()
+  );
 }
 
+export async function mainCategories(fetchedData) {
+  let data = fetchedData.categories;
+  data = data?.filter((item) => {
+    return item.parent;
+  });
+
+  console.log(data);
+  return data
+}
+
+
+export async function getLocation(fetchedData) {
+  let location = fetchedData.location;
+  console.log(location);
+
+  return location
+}
+
+
+
 export async function getweather(location) {
-  return await fetch(API_WEATHER_URL + location[0] + '&lon=' + location[1] + '&appid=' + API_KEY + '&units=metric').then((response) => response.json());
+  return await fetch(
+    API_WEATHER_URL +
+      location[0] +
+      "&lon=" +
+      location[1] +
+      "&appid=" +
+      API_KEY +
+      "&units=metric"
+  ).then((response) => response.json());
 }
 
 export function formatAMPM(date) {
   var hours = date.getHours();
   var minutes = date.getMinutes();
-  var ampm = hours >= 12 ? 'pm' : 'am';
+  var ampm = hours >= 12 ? "pm" : "am";
   hours = hours % 12;
   hours = hours ? hours : 12; // the hour '0' should be '12'
-  minutes = minutes < 10 ? '0'+minutes : minutes;
-  var strTime = hours + ':' + minutes + ' ' + ampm;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  var strTime = hours + ":" + minutes + " " + ampm;
   return strTime;
 }
 
-export function formatDate(){
+export function formatDate() {
   const currentDate = new Date();
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-return currentDate.toLocaleDateString('en-us', options);
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  return currentDate.toLocaleDateString("en-us", options);
 }
-

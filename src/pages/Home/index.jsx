@@ -9,8 +9,16 @@ import {
   Shapes3,
 } from "../../components/Icons";
 import Swiper_v1 from "../../components/Swiper";
-import { fetchData, formatAMPM, formatDate, getweather } from "../services";
+import {
+  fetchData,
+  formatAMPM,
+  formatDate,
+  getLocation,
+  getweather,
+  mainCategories,
+} from "../services";
 import { CategoriesSection } from "./home.styles";
+import useData from "@/hooks/useData";
 
 const Home = ({ HeaderProps, SwiperProps, CategoriesProps, FeedBackProps }) => {
   const [categories, setCategories] = useState();
@@ -18,42 +26,61 @@ const Home = ({ HeaderProps, SwiperProps, CategoriesProps, FeedBackProps }) => {
   const [weather, setWeather] = useState();
   const [weatherIcon, setWeatherIcon] = useState();
   const [reformattedHeader, setReformattedHeader] = useState({});
+  let time = formatAMPM(new Date());
+  const [cTime, setTime] = useState(time);
+  const { fetchedData, setFetchedData } = useData();
 
   useEffect(() => {
-    fetchData().then(function (result) {
-      setCategories(result.categories);
-      setLocation(result.location.loc);
-      handleReformattedHeader(result.location);
+    fetchData().then((result) => {
+      setFetchedData(result);
     });
-  }, [weather]);
+  }, []);
+
+  useEffect(() => {
+    mainCategories(fetchedData).then(function (result) {
+      setCategories(result);
+      getLocation(fetchedData).then(function (res) {
+        handleReformattedHeader(res);
+        setLocation(res.loc);
+      });
+    });
+  }, [fetchedData, weather]);
 
   useEffect(() => {
     location &&
       getweather(location).then(function (result) {
-        console.log(Math.round(parseFloat(result.main.temp)));
         setWeather(Math.round(parseFloat(result.main.temp)));
-        setWeatherIcon(result.weather[0].icon)
+        setWeatherIcon(result.weather[0].icon);
       });
   }, [location]);
 
-  const reformattedData = categories?.map((data) => {
-    return {
-      bgColor: data.bgColor ? data.bgColor : "#386F71",
-      bgImage: data.media[0].location,
-      title: data.name,
-      Icon: data.iconName ? data.iconName : Restaurant2,
-      onClick: () => console.log(data),
-    };
-  });
+  useEffect(() => {
+    const id = setInterval(() => {
+      setTime(time);
+    }, 1000);
+    return () => clearInterval(id);
+  }, [cTime]);
+  
+  if (categories) {
+    const reformattedData = categories?.map((data) => {
+      return {
+        bgColor: data.bgColor ? data.bgColor : "#386F71",
+        bgImage: data.media[0].location,
+        title: data.name,
+        Icon: data.iconName ? data.iconName : Restaurant2,
+        onClick: () => console.log(data),
+      };
+    });
+  }
 
   const handleReformattedHeader = (data) => {
     setReformattedHeader({
       variant: "primary",
-      time: formatAMPM(new Date()),
+      time: cTime,
       day: formatDate(),
       logo: data?.logo,
-      WeatherIcon: weatherIcon  ,
-      weather: weather && weather + " °C",
+      WeatherIcon: weatherIcon,
+      weather: weather && weather + "  °C",
       city: data?.city,
     });
   };
