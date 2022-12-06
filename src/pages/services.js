@@ -4,38 +4,22 @@ const {
   API_WEATHER_URL,
 } = require("../config/constants");
 
-export let FETCHED_DATA;
-
-// export async function fetchData() {
-//   return await fetch(API_BASE_URL).then((response) => response.json());
-
-// }
-
 export async function fetchData() {
-  return  await fetch(API_BASE_URL).then((response) =>
-    response.json()
-  );
+  return await fetch(API_BASE_URL).then((response) => response.json());
 }
 
 export async function mainCategories(fetchedData) {
-  let data = fetchedData.categories;
+  let data = fetchedData?.categories;
   data = data?.filter((item) => {
     return item.parent;
   });
-
-  console.log(data);
-  return data
+  return data;
 }
-
 
 export async function getLocation(fetchedData) {
-  let location = fetchedData.location;
-  console.log(location);
-
-  return location
+  let location = fetchedData?.location;
+  return location;
 }
-
-
 
 export async function getweather(location) {
   return await fetch(

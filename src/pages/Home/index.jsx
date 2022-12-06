@@ -2,12 +2,7 @@ import { useEffect, useState } from "react";
 import CategoriesGrid from "../../components/CategoriesGrid";
 import FeedBackCard from "../../components/FeedBackCard";
 import Header from "../../components/Header";
-import {
-  CloudSunny,
-  Restaurant2,
-  Shapes2,
-  Shapes3,
-} from "../../components/Icons";
+import { Restaurant2, Shapes2, Shapes3 } from "../../components/Icons";
 import Swiper_v1 from "../../components/Swiper";
 import {
   fetchData,
@@ -26,26 +21,29 @@ const Home = ({ HeaderProps, SwiperProps, CategoriesProps, FeedBackProps }) => {
   const [weather, setWeather] = useState();
   const [weatherIcon, setWeatherIcon] = useState();
   const [reformattedHeader, setReformattedHeader] = useState({});
+  const { fetchedData, setFetchedData } = useData();
   let time = formatAMPM(new Date());
   const [cTime, setTime] = useState(time);
-  const { fetchedData, setFetchedData } = useData();
 
+  //Fetch Data
   useEffect(() => {
     fetchData().then((result) => {
       setFetchedData(result);
     });
   }, []);
 
+  //Get Categories And Location
   useEffect(() => {
     mainCategories(fetchedData).then(function (result) {
       setCategories(result);
       getLocation(fetchedData).then(function (res) {
         handleReformattedHeader(res);
-        setLocation(res.loc);
+        setLocation(res?.loc);
       });
     });
   }, [fetchedData, weather]);
 
+  //Get Weather and WeatherIcon
   useEffect(() => {
     location &&
       getweather(location).then(function (result) {
@@ -54,25 +52,26 @@ const Home = ({ HeaderProps, SwiperProps, CategoriesProps, FeedBackProps }) => {
       });
   }, [location]);
 
+  //Update Time
   useEffect(() => {
     const id = setInterval(() => {
       setTime(time);
     }, 1000);
     return () => clearInterval(id);
   }, [cTime]);
-  
-  if (categories) {
-    const reformattedData = categories?.map((data) => {
-      return {
-        bgColor: data.bgColor ? data.bgColor : "#386F71",
-        bgImage: data.media[0].location,
-        title: data.name,
-        Icon: data.iconName ? data.iconName : Restaurant2,
-        onClick: () => console.log(data),
-      };
-    });
-  }
 
+  //Reformatte Categories
+  const reformattedData = categories?.map((data) => {
+    return {
+      bgColor: data.bgColor ? data.bgColor : "#386F71",
+      bgImage: data.media[0].location,
+      title: data.name,
+      Icon: data.iconName ? data.iconName : Restaurant2,
+      onClick: () => console.log(data),
+    };
+  });
+
+  //Reformatte Header
   const handleReformattedHeader = (data) => {
     setReformattedHeader({
       variant: "primary",
